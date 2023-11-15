@@ -1,1 +1,41 @@
+class WalletAPI implements WalletProviderVerification {
+    //walletAPI is checking that the number is right and is suitable for the selected once
+    private String phoneNumber;
 
+    @Override
+    public boolean verifyWallet(String mobileNumber, String walletProvider) {
+        //set the instance variable before verification
+        this.phoneNumber = mobileNumber;
+
+        if (isValidPhoneNumber()) {
+            if (isValidWalletProvider(walletProvider)) {
+                System.out.println("Verification successful");
+                return true;
+            } else {
+                System.out.println("Invalid WalletProvider");
+            }
+        } else {
+            System.out.println("Invalid phone number");
+        }
+        return false;
+    }
+
+    private boolean isValidPhoneNumber() {
+        return phoneNumber.length() == 11;
+    }
+
+    private boolean isValidWalletProvider(String walletProvider) {
+        switch (walletProvider.toLowerCase()) {
+            case "vodcash":
+                return phoneNumber.startsWith("010");
+            case "etisalatcash":
+                return phoneNumber.startsWith("011");
+            case "orangecash":
+                return phoneNumber.startsWith("012");
+            case "wepay":
+                return phoneNumber.startsWith("015");
+            default:
+                return false;
+        }
+    }
+}
