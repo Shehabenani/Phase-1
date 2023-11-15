@@ -1,0 +1,12 @@
+class OTPService {
+    public void sendOTP(String phoneNumber, String otp) {
+        //appears to the user wait for his input then scan
+        System.out.println("OTP Sent to " + phoneNumber + ": " + otp);
+    }
+
+    public boolean verifyOTP(String phoneNumber, String enteredOTP, String generatedOTP) {
+        System.out.println("Entered OTP: " + enteredOTP);
+        System.out.println("Correct OTP: " + generatedOTP);
+        return generatedOTP.equals(enteredOTP);
+    }
+}
