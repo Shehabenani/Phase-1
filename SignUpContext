@@ -1,0 +1,10 @@
+class SignUpContext {
+    private SignupStrategy signupStrategy;
+    public void setSignupStrategyStrategy(SignupStrategy signupStrategy) {
+        this.signupStrategy = signupStrategy;
+    }
+
+    public void createaccount() {
+        signupStrategy.signup();
+    }
+}
