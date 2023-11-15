@@ -1,0 +1,13 @@
+
+public class BankAccountUser extends User {
+    private String bankaccountNum;
+
+    public BankAccountUser(String name, String phonenum, String password, String bankaccountNum) {
+        super(name, phonenum, password);
+        this.bankaccountNum = bankaccountNum;
+    }
+
+    public String getBankaccountNum() {
+        return bankaccountNum;
+    }
+}

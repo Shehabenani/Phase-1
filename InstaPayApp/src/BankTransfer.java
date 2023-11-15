@@ -1,0 +1,47 @@
+import java.util.List;
+import java.util.Scanner;
+
+public class BankTransfer implements Transfer {
+    private final BankAccount bankAccount;
+
+    public BankTransfer(BankAccount bankAccount) {
+        this.bankAccount = App.authenticatedBankAccount;
+    }
+
+    @Override
+    public void execute() {
+        Scanner scanner = new Scanner(System.in);
+
+        BankAccountUser currentUser = bankAccount.getCurrentUser();
+
+        if (currentUser != null) {
+            System.out.print("Enter the recipient's bank account number: ");
+            String recipientAccountNum = scanner.nextLine();
+
+            // Check if the recipient is a valid bank user
+            if (isValidBankUser(recipientAccountNum, bankAccount.getUsers())) {
+                System.out.print("Enter the amount to transfer: ");
+                double amount = scanner.nextDouble();
+
+                //transfer logic
+                System.out.println("Transfering " + amount + "\nDone");
+
+            } else {
+                System.out.println("Invalid recipient.");
+            }
+        } else {
+            System.out.println("User not authenticated. Please sign in first.");
+        }
+    }
+
+    // Check if the recipient is a valid bank user
+    private boolean isValidBankUser(String recipientAccountNum, List<BankAccountUser> users) {
+        for (BankAccountUser user : users) {
+            if (user.getBankaccountNum().equals(recipientAccountNum)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+}

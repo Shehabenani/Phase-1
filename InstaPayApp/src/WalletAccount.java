@@ -1,0 +1,147 @@
+import java.util.List;
+import java.util.Scanner;
+
+public class WalletAccount implements SignupStrategy, SignInStrategy{
+    private List<WalletUser> walletUsers;
+    private WalletUser currentUser; // Track the current user
+    private UserVerificationFacade facade;
+    private Scanner scanner;
+
+    public WalletAccount(List<WalletUser> walletUsers) {
+        this.walletUsers = walletUsers;
+        this.scanner = new Scanner(System.in);
+    }
+
+    @Override
+    public void setVerificationFacade(UserVerificationFacade facade) {
+        this.facade = facade;
+    }
+
+    @Override
+    public void signup() {
+        boolean isUsernameUnique = false;
+
+        while (!isUsernameUnique) {
+            System.out.print("Enter Your User Name: ");
+            String userName = scanner.nextLine();
+
+            boolean isDuplicate = walletUsers.stream().anyMatch(u -> u.getName().equals(userName));
+            if (isDuplicate) {
+                System.out.println("Username already exists. Please choose a different one.");
+            } else {
+                isUsernameUnique = true; // Break the loop when a unique username is provided
+
+                System.out.print("Enter Your Phone Number: ");
+                String phoneNumber = scanner.nextLine();
+
+                System.out.print("Enter Your Password: ");
+                String password = scanner.nextLine();
+
+                System.out.println("Choose WalletProvider:");
+                System.out.println("CHOOSE [1] FOR VODCASH");
+                System.out.println("CHOOSE [2] FOR ETISALATCASH");
+                System.out.println("CHOOSE [3] FOR ORANGECASH");
+                System.out.println("CHOOSE [4] FOR WEPAY");
+
+                int providerChoice = scanner.nextInt();
+
+                WalletProvider selectedProvider = getWalletProviderByChoice(providerChoice);
+                if (selectedProvider == null) {
+                    System.out.println("Invalid choice for WalletProvider.");
+                    return ;
+                }
+
+                if (facade != null) {
+                    boolean isVerified = facade.verifyUser("", phoneNumber, selectedProvider.getName(), false);
+
+                    if (!isVerified) {
+                        System.out.println("Verification failed. Wallet Account User not created.");
+                        return; // Exit the signup process if verification fails
+                    }
+                } else {
+                    System.out.println("Facade is not available to verify user.");
+                    return; // Exit the signup process if verification cannot be performed
+                }
+
+                // If verification passes, proceed with user creation
+                WalletUser newUser = new WalletUser(userName, phoneNumber, password, selectedProvider.getName());
+                walletUsers.add(newUser);
+
+                // Set the current user to the newly signed-up user
+                setCurrentUser(newUser);
+
+                System.out.println("Wallet Account User signed up and verified successfully!");
+            }
+        }
+    }
+
+
+    private WalletProvider getWalletProviderByChoice(int choice) {
+        switch (choice) {
+            case 1:
+                return WalletProvider.VODCASH;
+            case 2:
+                return WalletProvider.ETISALATCASH;
+            case 3:
+                return WalletProvider.ORANGECASH;
+            case 4:
+                return WalletProvider.WEPAY;
+            default:
+                return null;
+        }
+    }
+
+    @Override
+    public boolean authenticate(String username, String password) {
+        int attempts = 0;
+        while (attempts < 3) { // Allow only 3 attempts
+            WalletUser authenticatedUser = authenticateUser(username, password);
+            if (authenticatedUser != null) {
+                setCurrentUser(authenticatedUser);
+                System.out.println("Logged in as: " + authenticatedUser.getName());
+                return true; // Exit the method after successful authentication
+            }
+            System.out.println("Invalid username or password");
+            attempts++;
+        }
+        System.out.println("Too many login attempts. Please try again later.");
+        return false;
+    }
+    // Method to authenticate the user based on username and password
+    private WalletUser authenticateUser(String username, String password) {
+        for (WalletUser user : walletUsers) {
+            if (user.getName().equals(username) && user.getPassword().equals(password)) {
+                return user; // Return the authenticated user
+            }
+        }
+        System.out.println("Invalid username or password");
+        return null; // Return null if authentication fails
+    }
+
+
+    public void setCurrentUser(WalletUser user) { // Update to WalletUser
+        this.currentUser = user;
+    }
+    public List<WalletUser> getUsers() {
+        return walletUsers;
+    }
+
+    public UserVerificationFacade getVerificationFacade() {
+        return facade;
+    }
+    @Override
+    public WalletUser getCurrentUser() {
+        return currentUser;
+    }
+    public void printWalletUsers() {
+        for (WalletUser user : walletUsers) {
+            System.out.println("Username: " + user.getName() + ", Phone Number: " + user.getPhonenum() +
+                    ", Wallet Provider: " + user.getWalletProvider());
+        }
+    }
+
+    public void closeScanner() {
+        scanner.close();
+    }
+
+}

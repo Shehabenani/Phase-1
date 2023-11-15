@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6ced44fa-f96f-450b-8ceb-93e752dce724" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InstaPayApp.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/AuthenticationUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/BalanceInquiry.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/BankAPI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/BankAccount.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/BankAccountUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/BankAccountVerification.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/BankTransfer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/BillType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ElectricityBill.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GasBill.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/InstapayTransfer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/OTPGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/OTPService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SignInStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SignupStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Transfer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/TransferFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/TransferType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/UserVerificationFacade.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/UtilityBill.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/WalletAPI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/WalletAccount.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/WalletProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/WalletProviderVerification.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/WalletTransfer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/WalletUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/WaterBill.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 2
+}]]></component>
+  <component name="ProjectId" id="2YEHQvF7Gd0EiQf9ZXDeHbqOaVy" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "onboarding.tips.debug.path": "/Users/zeyad/Desktop/SwDWord/InstaPayApp/src/Main.java"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6ced44fa-f96f-450b-8ceb-93e752dce724" name="Changes" comment="" />
+      <created>1700083808031</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1700083808031</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/App.java</url>
+          <line>885</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

@@ -1,0 +1,17 @@
+import java.util.Random;
+
+//class to generate a random OTP
+public class OTPGenerator {
+    private final int OTP_LENGTH = 4;
+    //generates and returns a random four digits
+    public String generateOTP() {
+        Random random = new Random();
+        StringBuilder otpBuilder = new StringBuilder();
+
+        for (int i = 0; i < OTP_LENGTH; i++) {
+            otpBuilder.append(random.nextInt(10));
+        }
+
+        return otpBuilder.toString();
+    }
+}

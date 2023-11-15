@@ -1,0 +1,18 @@
+import java.util.Scanner;
+
+// InstapayTransfer (Concrete Transfer)
+public class InstapayTransfer implements Transfer {
+    @Override
+    public void execute() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter receiver account:");
+        String receiver = scanner.next();
+
+        System.out.println("Enter amount to transfer:");
+        double amount = scanner.nextDouble();
+        // Implement transfer logic to another instapay account
+        System.out.println("Transferring $" + amount  + " to account " + receiver);
+        // Additional logic specific to transferring to an account
+
+    }
+}
